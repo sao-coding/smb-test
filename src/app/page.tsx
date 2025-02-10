@@ -17,13 +17,10 @@ const HomePgae = () => {
     if (file) {
       const formData = new FormData()
       formData.append("file", file)
-      const res = await fetch(
-        "http://smbtest-1test-o2uoor-86b593-49-159-84-63.traefik.me/api/upload",
-        {
-          method: "POST",
-          body: formData
-        }
-      )
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData
+      })
       const data = await res.json()
       if (res.ok) {
         setMessage(data.message)
